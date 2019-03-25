@@ -1,4 +1,4 @@
-# SimpleTemplate
+# Ron
 
 To start your Phoenix server:
 

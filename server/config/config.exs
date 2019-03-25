@@ -8,10 +8,10 @@
 use Mix.Config
 
 # Configures the endpoint
-config :simple_template, SimpleTemplateWeb.Endpoint,
+config :ron, Ron_Web.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: SimpleTemplateWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: SimpleTemplate.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: Ron_Web.ErrorView, accepts: ~w(json)],
+  pubsub: [name: Ron.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

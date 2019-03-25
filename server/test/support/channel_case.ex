@@ -1,4 +1,4 @@
-defmodule SimpleTemplateWeb.ChannelCase do
+defmodule Ron_Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,7 +21,7 @@ defmodule SimpleTemplateWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint SimpleTemplateWeb.Endpoint
+      @endpoint Ron_Web.Endpoint
     end
   end
 
