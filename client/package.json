@@ -1,10 +1,11 @@
 {
-  "name": "bareact",
+  "name": "ron-client",
   "version": "0.1.0",
-  "description": "bare bones react bootstrapper",
+  "description": "UI showing Ron Swanson quotes and allowing votes",
   "main": "src/index.js",
   "scripts": {
-    "build": "npm run transpile && npm run bundle && cp dist/main.js public/bundle.js",
+    "build.phoenix": "rm -rf ../server/priv && mkdir -p ../server/priv/static && npm run build && cp dist/main.js public/bundle.js && cp -r public ../server/priv/static",
+    "build": "npm run transpile && npm run bundle",
     "transpile": "./node_modules/.bin/babel src --out-dir transpiled",
     "bundle": "webpack"
   },

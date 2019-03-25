@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
-var mountPoint = document.getElementById("mountPoint")
+var reactEntryPoint = document.getElementById("reactEntryPoint")
 
-ReactDOM.render(<div>Change this text src/index.js</div>, mountPoint)
+ReactDOM.render(<App />, reactEntryPoint)
