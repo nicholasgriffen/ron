@@ -1,4 +1,4 @@
-defmodule Ron_Web.ConnCase do
+defmodule RonWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,10 +19,10 @@ defmodule Ron_Web.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias Ron_Web.Router.Helpers, as: Routes
+      alias RonWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint Ron_Web.Endpoint
+      @endpoint RonWeb.Endpoint
     end
   end
 

@@ -8,9 +8,9 @@
 use Mix.Config
 
 # Configures the endpoint
-config :ron, Ron_Web.Endpoint,
+config :ron, RonWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: Ron_Web.ErrorView, accepts: ~w(json)],
+  render_errors: [view: RonWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: Ron.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
