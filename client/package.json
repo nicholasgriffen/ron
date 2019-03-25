@@ -4,7 +4,9 @@
   "description": "UI showing Ron Swanson quotes and allowing votes",
   "main": "src/index.js",
   "scripts": {
-    "build.phoenix": "rm -rf ../server/priv && mkdir -p ../server/priv/static && npm run build && cp dist/main.js public/bundle.js && cp -r public ../server/priv/static",
+    "once": "npm install && npm run build.phoenix && cd ../server && mix deps.get && mix phx.server",
+    "start": "cd ../server; mix phx.server",
+    "build.phoenix": "rm -rf ../server/priv && mkdir -p ../server/priv/static && npm run build && cp dist/main.js public/bundle.js && cp -r public ./static && mv ./static ../server/priv/.",
     "build": "npm run transpile && npm run bundle",
     "transpile": "./node_modules/.bin/babel src --out-dir transpiled",
     "bundle": "webpack"
