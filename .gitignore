@@ -2,8 +2,7 @@ server/deps/
 server/_build/
 server/.elixir_ls/
 server/erl_crash.dump
-server/priv/static
+server/priv/static/main.js
 client/node_modules
-client/public/bundle.js
 client/transpiled/
 client/dist/

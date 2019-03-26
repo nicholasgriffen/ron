@@ -7,7 +7,7 @@ export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      activeQuote: null, 
+      activeQuote: null,
       endpoint: '/api/quotes'
     }
   }
@@ -16,25 +16,26 @@ export default class extends React.Component {
     var size = document.getElementById("size-select").value || "small"
     fetch(`${this.state.endpoint}?size=${size}`).then(res => res.json()).then(quote => {
       this.setState({
-        ...this.state, 
+        ...this.state,
         error: null,
         activeQuote: quote
       })
     })
-    
+
   }
 
   rateQuote = id => e => {
     e.preventDefault()
     fetch(`${this.state.endpoint}?id=${id}`, {
-      method: 'POST', 
+      method: 'POST',
       body: JSON.stringify({
         rating: Array.from(document.getElementById('ratingForm').children).find(x => x.checked).value
-      }), 
+      }),
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
     }).then(res => {
+      // api returns a 401 if ip is in the quote blacklist
       if (res.status === 401) {
         return Promise.reject("You've already voted on this quote")
       } else {
@@ -42,20 +43,20 @@ export default class extends React.Component {
       }
     }).then(rating => {
       this.setState({
-        activeQuote: Object.assign(this.state.activeQuote, { rating: rating}), 
+        activeQuote: Object.assign(this.state.activeQuote, { rating: rating }),
         error: null,
-        })
+      })
     }).catch(e => this.setState({
-      ...this.state, 
+      ...this.state,
       error: e
     }))
   }
   render() {
     return (
-      <div style={appComponentStyle}>
-        <Error message={this.state.error}/>
-        <Quote quote={this.state.activeQuote}  rateQuote={this.rateQuote}/>
-        <Home
+      <div style={columnContainer}>
+        <Error message={this.state.error} />
+        <Quote quote={this.state.activeQuote} rateQuote={this.rateQuote} />
+        <Home style={columnContainer}
           img_src="./penny.png"
           img_alt="back of a united states penny circa unknown year. click to get a Swanson word of wisdom"
           button_text="CLICK TO GET A SWANSON WORD OF WISDOM"
@@ -66,9 +67,9 @@ export default class extends React.Component {
   }
 }
 
-var appComponentStyle = {
+var columnContainer = {
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-around", 
+  justifyContent: "spaceAround",
   flexDirection: "column"
 }

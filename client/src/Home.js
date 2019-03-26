@@ -3,8 +3,9 @@ import React from 'react'
 // 1
 export default function (props) {
   return (
-    <div>
-      <img src={props.img_src} alt={props.img_alt} onClick={props.click_handler} style={imgStyle}>
+    <div style={columnContainer}>
+      <h1>Click the penny or the button to give Ron a penny for his thoughts</h1>
+      <img src={props.img_src} alt={props.img_alt} role="button" onClick={props.click_handler} style={imgStyle}>
       </img>
       <button onClick={props.click_handler}>
         {props.button_text}
@@ -20,6 +21,14 @@ export default function (props) {
 }
 
 var imgStyle = {
-  width: "125px", 
+  width: "125px",
   height: "124px"
+}
+
+
+var columnContainer = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+  flexDirection: "column"
 }
