@@ -4,12 +4,14 @@
   "description": "UI showing Ron Swanson quotes and allowing votes",
   "main": "src/index.js",
   "scripts": {
-    "once": "npm install && npm run build && cd ../server && mix deps.get && mix phx.server",
-    "start": "cd ../server; mix phx.server",
-    "copy": "rm ../server/priv/static/main.js && cp dist/main.js ../server/priv/static/.",
+    "once": "cd client; npm install && npm run build && cd ../server && mix deps.get && npm run makedb && mix phx.server",
+    "start": "cd server; mix phx.server",
+    "copy": "rm server/priv/static/main.js && cp client/dist/main.js server/priv/static/.",
     "build": "npm run transpile && npm run bundle && npm run copy",
-    "transpile": "./node_modules/.bin/babel src --out-dir transpiled",
-    "bundle": "webpack"
+    "transpile": "client/node_modules/.bin/babel src --out-dir transpiled",
+    "bundle": "cd client; webpack", 
+    "makedb": "cd server; mix ecto.create && mix ecto.migrate && mix run priv/repo/seeds.exs", 
+    "resetdb": "cd server; mix ecto.reset"
   },
   "author": "nicholasgriffen",
   "license": "ISC",
