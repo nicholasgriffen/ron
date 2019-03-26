@@ -4,7 +4,7 @@
   "description": "UI showing Ron Swanson quotes and allowing votes",
   "main": "src/index.js",
   "scripts": {
-    "once": "npm install && npm run build && cd ../server && mix deps.get && mix phx.server",
+    "once": "npm install && npm run build && cd ../server && mix deps.get && mix ecto.create && mix ecto.migrate && mix run priv/repo/seeds.exs && mix phx.server",
     "start": "cd ../server; mix phx.server",
     "movedist": "cp dist/main.js ../server/priv/static/.",
     "build": "npm run transpile && npm run bundle && npm run movedist",
