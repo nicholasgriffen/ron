@@ -13,7 +13,7 @@ defmodule RonWeb.Endpoint do
     at: "/",
     from: :ron,
     gzip: false,
-    only: ~w(bundle.js index.html index.css favicon.ico penny.png)
+    only: ~w(main.js index.html index.css favicon.ico penny.png)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

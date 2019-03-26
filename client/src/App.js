@@ -47,7 +47,7 @@ export default class extends React.Component {
   render() {
     return (
       <div style={appComponentStyle}>
-        <Quote quote={this.state.activeQuote}/>
+        <Quote quote={this.state.activeQuote}  rateQuote={this.rateQuote}/>
         <Home
           img_src="./penny.png"
           img_alt="back of a united states penny circa unknown year. click to get a Swanson word of wisdom"

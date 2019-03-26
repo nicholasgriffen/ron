@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function ({activeQuote, rateQuote}) {
+export default function ({quote, rateQuote}) {
   return (
-      activeQuote ?
+      quote ?
       <div>
-        Ron says: {activeQuote.text}<br></br>
-        Average Rating: <span>{activeQuote.rating}</span><br></br>
+        Ron says: {quote.text}<br></br>
+        Average Rating: <span>{quote.rating}</span><br></br>
         Select your rating: 
-        <form onSubmit={rateQuote(activeQuote.id)}>
+        <form onSubmit={rateQuote(quote.id)}>
             <input type="radio" name="rating" value="1" /> 1
             <input type="radio" name="rating" value="2"/> 2
             <input type="radio" name="rating" value="3" /> 3
