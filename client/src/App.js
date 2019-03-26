@@ -62,6 +62,9 @@ export default class extends React.Component {
           button_text="CLICK TO GET A SWANSON WORD OF WISDOM"
           click_handler={this.getQuote}
         />
+        <footer>
+          Quotes sourced from <a href="https://github.com/jamesseanwright/ron-swanson-quotes">Ron Swanson Quotes API</a>
+        </footer>
       </div>
     )
   }

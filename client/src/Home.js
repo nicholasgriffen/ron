@@ -4,9 +4,9 @@ import React from 'react'
 export default function (props) {
   return (
     <div style={columnContainer}>
-      <h1>Click the penny or the button to give Ron a penny for his thoughts</h1>
-      <img src={props.img_src} alt={props.img_alt} role="button" onClick={props.click_handler} style={imgStyle}>
-      </img>
+      <h1>Click to give Ron Swanson a penny for his thoughts</h1>
+      <input type="image" src={props.img_src} alt={props.img_alt} role="button" onClick={props.click_handler} style={imgStyle}>
+      </input>
       <button onClick={props.click_handler}>
         {props.button_text}
       </button>
