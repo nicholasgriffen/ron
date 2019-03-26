@@ -1,7 +1,7 @@
 # ron
-System requirements: npm, mix     
+System requirements: Unix-like OS, npm, mix, running postgresql service     
 first time here? Try this:     
 `git clone git@github.com:nicholasgriffen/ron`            
 `cd ron`     
 `./setup.sh`    
-On Windows? run `setup.bat` instead
+Then point your browser to localhost:4000
