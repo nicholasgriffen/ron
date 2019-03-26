@@ -1,12 +1,12 @@
 import React from 'react'
 import Home from './Home'
 import Quote from './Quote'
+import Error from './Error'
 
 export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      quotes: [],
       activeQuote: null, 
       endpoint: '/api/quotes'
     }
@@ -17,6 +17,7 @@ export default class extends React.Component {
     fetch(`${this.state.endpoint}?size=${size}`).then(res => res.json()).then(quote => {
       this.setState({
         ...this.state, 
+        error: null,
         activeQuote: quote
       })
     })
@@ -24,29 +25,35 @@ export default class extends React.Component {
   }
 
   rateQuote = id => e => {
+    e.preventDefault()
     fetch(`${this.state.endpoint}?id=${id}`, {
       method: 'POST', 
       body: JSON.stringify({
-        rating: e.target.value
+        rating: Array.from(document.getElementById('ratingForm').children).find(x => x.checked).value
       }), 
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
-    }).then(res => res.json()).then(rating => {
+    }).then(res => {
+      if (res.status === 401) {
+        return Promise.reject("You've already voted on this quote")
+      } else {
+        return res.json()
+      }
+    }).then(rating => {
       this.setState({
-        ...this.state, 
-        quotes: this.state.quotes.map(quote => {
-          if (quote.id === +id) {
-            quote.rating = rating 
-          }
-          return quote 
+        activeQuote: Object.assign(this.state.activeQuote, { rating: rating}), 
+        error: null,
         })
-      })
-    })
+    }).catch(e => this.setState({
+      ...this.state, 
+      error: e
+    }))
   }
   render() {
     return (
       <div style={appComponentStyle}>
+        <Error message={this.state.error}/>
         <Quote quote={this.state.activeQuote}  rateQuote={this.rateQuote}/>
         <Home
           img_src="./penny.png"

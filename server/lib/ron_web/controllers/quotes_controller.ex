@@ -19,9 +19,30 @@ defmodule RonWeb.QuotesController do
       |> send_resp(200, Jason.encode!(random_quote(quotes)))
   end
 
-  def vote(conn, params) do
-    # if quote blacklist includes conn.remote_ip
-    # expects
+  def vote(conn, %{"id"=> id}) do
+    {intId, _remainder} = Integer.parse(id)
+    quote = Quotes.get_quote!(intId)
+    ip = to_string(:inet_parse.ntoa(conn.remote_ip))
+    # if quote blacklist includes conn.remote_ip reject
+    if Enum.member?(quote.blacklist, ip) do
+      conn
+      |> send_resp(401, "You've already voted on this quote")
+    else
+    # add ip to blacklist
+    newBlacklist = [ip] ++ quote.blacklist
+    # add rating to rating
+    # divide rating by blacklist length
+    {rating, _remainder} = Integer.parse(conn.body_params["rating"])
+    newRating = ( rating + quote.rating) / length(newBlacklist)
+    # update record
+    Quotes.update_quote(quote, %{"rating" => newRating, "blacklist" => newBlacklist})
+    # send rating
+    conn
+      |> put_resp_content_type("application/json")
+      |> send_resp(200, Jason.encode!(newRating))
+    end
+
+
   end
 
   defp random_quote(quotes) do
