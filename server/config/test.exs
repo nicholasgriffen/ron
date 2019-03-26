@@ -8,3 +8,11 @@ config :ron, RonWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Configure your database
+config :ron, Ron.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "ron_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

@@ -7,7 +7,7 @@ defmodule RonWeb.Router do
 
   scope "/api", RonWeb do
     pipe_through :api
-    get "/quote", QuoteController, :getQuote
+    get "/quotes", QuotesController, :find
+    post "/quotes", QuotesController, :vote
   end
-
 end

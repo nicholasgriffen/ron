@@ -22,6 +22,7 @@ defmodule RonWeb do
       use Phoenix.Controller, namespace: RonWeb
 
       import Plug.Conn
+      import RonWeb.Gettext
       alias RonWeb.Router.Helpers, as: Routes
     end
   end
@@ -29,12 +30,14 @@ defmodule RonWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "priv/",
+        root: "lib/ron_web/templates",
         namespace: RonWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
+      import RonWeb.ErrorHelpers
+      import RonWeb.Gettext
       alias RonWeb.Router.Helpers, as: Routes
     end
   end
@@ -50,6 +53,7 @@ defmodule RonWeb do
   def channel do
     quote do
       use Phoenix.Channel
+      import RonWeb.Gettext
     end
   end
 

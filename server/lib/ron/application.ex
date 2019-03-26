@@ -8,6 +8,8 @@ defmodule Ron.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      # Start the Ecto repository
+      Ron.Repo,
       # Start the endpoint when the application starts
       RonWeb.Endpoint
       # Starts a worker by calling: Ron.Worker.start_link(arg)
