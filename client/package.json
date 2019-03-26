@@ -6,8 +6,8 @@
   "scripts": {
     "once": "npm install && npm run build && cd ../server && mix deps.get && mix phx.server",
     "start": "cd ../server; mix phx.server",
-    "movedist": "rm ../server/priv/static/main.js && cp dist/main.js ../server/priv/static/.",
-    "build": "npm run transpile && npm run bundle && npm run movedist",
+    "copy": "rm ../server/priv/static/main.js && cp dist/main.js ../server/priv/static/.",
+    "build": "npm run transpile && npm run bundle && npm run copy",
     "transpile": "./node_modules/.bin/babel src --out-dir transpiled",
     "bundle": "webpack"
   },
