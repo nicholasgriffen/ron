@@ -41,7 +41,7 @@ defmodule RonWeb.QuotesController do
       # add rating to rating
       # divide rating by blacklist length
       {rating, _remainder} = Integer.parse(conn.body_params["rating"])
-      newRating = (rating + quote.rating) / length(newBlacklist)
+      newRating = (rating + quote.rating) / 2
       # update record
       Quotes.update_quote(quote, %{"rating" => newRating, "blacklist" => newBlacklist})
       # send rating
