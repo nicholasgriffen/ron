@@ -1,4 +1,5 @@
 # ron
+see and rate quotes from Ron Swanson, courtesy of the [Ron Swanson Quotes API](https://github.com/jamesseanwright/ron-swanson-quotes)
 ## live 
 http://ron-ng.herokuapp.com    
 ## local
