@@ -1,6 +1,5 @@
 import React from 'react'
 import Home from './Home'
-import Quote from './Quote'
 import Error from './Error'
 
 export default class extends React.Component {
