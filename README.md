@@ -1,4 +1,7 @@
 # ron
+## live 
+http://ron-ng.herokuapp.com    
+## local
 System requirements: Unix-like OS, npm, mix, running postgresql service     
 first time here? Try this:     
 `git clone git@github.com:nicholasgriffen/ron`            
