@@ -1,4 +1,6 @@
-# Ron
+# ron
+
+## Phoenix boilerplate readme below
 
 To start your Phoenix server:
 
