@@ -13,10 +13,10 @@ Then point your browser to localhost:4000
 ## development 
 
 ### client 
-The client is a React application, stored in /client. It is meant to be built with `npm run build`, and served from the server (Phoenix) application at server/priv/static. You only need to start the server once during client dev (`npm run start`). As you develop the client application, you can run `npm run build`, then refresh your browser pointed at localhost:4000 to see changes. 
+The client is a React application, stored in /client. The application was not bootstrapped with any existing tools, e.g., Create React App. It uses Babel (`npm run transpile`) and Webpack (`npm run bundle`) with simple configuration. It is meant to be built with `npm run build`, and served from the server (Phoenix) application at server/priv/static. You only need to start the server once during client dev (`npm run start`). As you develop the client application, you can run `npm run build`, then refresh your browser pointed at localhost:4000 to see changes. 
 
 ### server 
-The server is a Phoenix application, stored in /server. It is meant to interact with a Postgresql database, serving quotes and their associated ratings. It is also meant to serve the client application from server/priv/static. Here are some useful commands to run from the server directory: 
+The server is a Phoenix application, stored in /server. The application was bootstrapped with `mix phx.new --no-webpack --no-html`. It is meant to interact with a Postgresql database, serving quotes and their associated ratings. It is also meant to serve the client application from server/priv/static. Here are some useful commands to run from the server directory: 
 `mix ecto.setup` will create and migrate the database    
 `mix run priv/repo/seeds.exs` will fetch all 57 quotes from the Ron Swanson Quotes API, and store them in the database.    
 `mix phx.server` will compile the application and run a server listening to localhost:4000    
