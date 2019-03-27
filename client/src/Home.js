@@ -1,7 +1,6 @@
 import React from 'react'
 import Quote from './Quote'
-// stories
-// 1
+
 export default function (props) {
   return (
     <div style={columnContainer}>
