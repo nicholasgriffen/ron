@@ -23,5 +23,5 @@ The server is a Phoenix application, stored in /server. The application was boot
 
 ## deployment strategy
 
-The application is deployed to Heroku using the buildpack at: https://github.com/HashNuke/heroku-buildpack-elixir.git    
+The server application with client bundle is deployed to Heroku using the buildpack at: https://github.com/HashNuke/heroku-buildpack-elixir.git    
 Note that it is unnecessary to deploy the client application, and Heroku has difficulty if the deployment is attempted from the top level of this repo. I built the client application and copied the server application (with client at priv/static) to a new repo. Then I deployed that new repo following instructions at https://hexdocs.pm/phoenix/heroku.html. 
