@@ -1,10 +1,12 @@
 import React from 'react'
+import Quote from './Quote'
 // stories
 // 1
 export default function (props) {
   return (
     <div style={columnContainer}>
       <h1>Click to give Ron Swanson a penny for his thoughts</h1>
+      <Quote quote={props.quote} rateQuote={props.rateQuote} />
       <input type="image" src={props.img_src} alt={props.img_alt} role="button" onClick={props.click_handler} style={imgStyle}>
       </input>
       <button onClick={props.click_handler}>

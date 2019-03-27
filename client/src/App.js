@@ -55,12 +55,13 @@ export default class extends React.Component {
     return (
       <div style={columnContainer}>
         <Error message={this.state.error} />
-        <Quote quote={this.state.activeQuote} rateQuote={this.rateQuote} />
         <Home style={columnContainer}
           img_src="./penny.png"
           img_alt="back of a united states penny circa unknown year. click to get a Swanson word of wisdom"
           button_text="CLICK TO GET A SWANSON WORD OF WISDOM"
           click_handler={this.getQuote}
+          quote={this.state.activeQuote}
+          rateQuote={this.rateQuote}
         />
         <footer>
           Quotes sourced from <a href="https://github.com/jamesseanwright/ron-swanson-quotes">Ron Swanson Quotes API</a>
